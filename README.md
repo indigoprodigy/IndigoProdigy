@@ -13,13 +13,17 @@ This GitHub profile is a curated public portfolio for selected experiments, crea
 
 ## Selected work
 
-Public projects and demonstrations will be added here as they are ready to share. Each project will include a clear description, its current status, and the appropriate documentation.
+Browse the [selected project index](projects/README.md). Projects will be added as they are reviewed and ready to share.
+
+## Publication and security
+
+Public contributions and demonstrations follow the [public portfolio publication standards](docs/PUBLICATION-STANDARDS.md). Private business operations, unreleased intellectual property, credentials, and sensitive records do not belong in this repository.
 
 ## Building
 
 I am developing the **UniversoulCo** creative ecosystem: a broader body of work connecting creative practice, technology, and community.
 
-This profile will document selected public-facing work without disclosing private infrastructure or unreleased intellectual property.
+This profile documents selected public-facing work without disclosing private infrastructure or unreleased intellectual property.
 
 ## Connect
 
