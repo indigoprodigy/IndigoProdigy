@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An independent, browser-only color study demonstration using fictional sample palettes.">
+  <title>Standalone Color Study</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, sans-serif; background: #f5f3ef; color: #222; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 2rem; }
+    main { width: min(760px, 100%); background: white; border: 1px solid #e4e0d9; border-radius: 20px; padding: clamp(1.25rem, 4vw, 2.5rem); box-shadow: 0 18px 50px #30291d12; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; color: #777; font-weight: 700; }
+    h1 { margin: .5rem 0; font-size: clamp(2rem, 5vw, 3rem); }
+    p { line-height: 1.6; color: #5e5b55; }
+    .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; margin: 2rem 0 1rem; }
+    .swatch { min-width: 0; }
+    .color { height: 150px; border-radius: 12px; border: 1px solid #00000012; }
+    code { display: block; margin-top: .55rem; font-size: .82rem; color: #555; }
+    button { border: 0; border-radius: 999px; padding: .85rem 1.2rem; background: #242424; color: white; font: inherit; cursor: pointer; }
+    button:focus-visible { outline: 3px solid #777; outline-offset: 3px; }
+    .note { border-top: 1px solid #eee; margin-top: 2rem; padding-top: 1rem; font-size: .85rem; }
+    @media (max-width: 560px) { .swatches { grid-template-columns: repeat(2, 1fr); } .color { height: 110px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Independent sample · Browser-only</div>
+    <h1>Color Study</h1>
+    <p>A small, self-contained exercise in visual contrast and palette relationships. Select a new fictional sample palette to explore a different combination.</p>
+    <section class="swatches" id="swatches" aria-label="Sample color palette"></section>
+    <button id="next" type="button">Explore another palette</button>
+    <p class="note">This is an isolated demonstration created for this portfolio. It does not represent, connect to, or disclose any production system, private project, or proprietary design library.</p>
+  </main>
+  <script>
+    const palettes = [
+      ["#243B53", "#486581", "#9FB3C8", "#F0F4F8"],
+      ["#4A3F35", "#8D775F", "#C9B79C", "#F3EDE2"],
+      ["#354F52", "#52796F", "#84A98C", "#CAD2C5"],
+      ["#553C4A", "#8B6577", "#C49AA8", "#F1E5E9"]
+    ];
+    let index = 0;
+    const container = document.querySelector("#swatches");
+    function render() {
+      container.replaceChildren();
+      palettes[index].forEach((hex, i) => {
+        const item = document.createElement("div");
+        item.className = "swatch";
+        const color = document.createElement("div");
+        color.className = "color";
+        color.style.backgroundColor = hex;
+        color.setAttribute("aria-label", "Sample color " + (i + 1));
+        const label = document.createElement("code");
+        label.textContent = hex;
+        item.append(color, label);
+        container.append(item);
+      });
+    }
+    document.querySelector("#next").addEventListener("click", () => {
+      index = (index + 1) % palettes.length;
+      render();
+    });
+    render();
+  </script>
+</body>
+</html>
