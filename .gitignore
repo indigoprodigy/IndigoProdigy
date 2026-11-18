@@ -1,0 +1,22 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Local operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local build and dependency output
+node_modules/
+dist/
+build/
+.cache/
